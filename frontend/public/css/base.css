@@ -8,6 +8,10 @@
   color: #1B78C1;
 }
 
+button {
+  cursor: pointer;
+}
+
 div {
   font-weight: bold;
   font-size: 24pt;
