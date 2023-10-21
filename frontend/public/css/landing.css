@@ -82,7 +82,8 @@ body {
   display: inline-flex
 }
 
-.main-buttons-container button {
+.main-buttons-container button,
+.new-form-button {
   font-size: 14pt;
   height: 56px;
 }

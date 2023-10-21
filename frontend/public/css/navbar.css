@@ -6,6 +6,9 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+  border-right-width: 1;
+  border-right-color: #E1E1E1;
+  border-right-style: solid;
 }
 
 .navbar .icon-holder {
