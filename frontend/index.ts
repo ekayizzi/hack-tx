@@ -11,8 +11,20 @@ app.engine('handlebars', handlebars.engine({
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-  console.log('handling base boi')
   res.render('form', {layout : 'formLayout'});
+});
+
+app.get('/score', (req, res) => {
+  if(
+    Object.keys(req.query).length !== 1 ||
+    !('score' in req.query) ||
+    !/^((\d+(\.\d+)?)|(\.\d+))$/.test(req.query.score)
+  ) {
+    res.redirect('/');
+    return;
+  }
+  console.log(req.query);
+  res.render('score', {layout : 'formLayout', score: req.query.score});
 });
 
 app.listen(PORT, () => {
