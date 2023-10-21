@@ -1,23 +1,20 @@
 const express = require('express');
+const handlebars = require('express-handlebars');
 
 const PORT = 3000;
 
 const app = express();
-
-function sendFile(res, simpleFileName: string) {
-  if(simpleFileName.startsWith('/'))
-    simpleFileName = simpleFileName.substring(1);
-  if(simpleFileName.endsWith('/'))
-    simpleFileName = simpleFileName.substring(0, simpleFileName.length - 1);
-  const path: string= `${__dirname}/${simpleFileName}`;
-  console.log(`sending file: ${path}`);
-  res.sendFile(path);
-}
+app.set('view engine', 'handlebars');
+app.engine('handlebars', handlebars.engine({
+  layoutsDir: __dirname + '/views/layouts',
+}));
+app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-  sendFile(res, 'index.html');
+  console.log('handling base boi')
+  res.render('form', {layout : 'formLayout'});
 });
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
-})
+});
