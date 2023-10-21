@@ -11,7 +11,7 @@ app.engine('handlebars', handlebars.engine({
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-  res.render('form', {layout : 'formLayout'});
+  res.render('landing', {layout : 'formLayout', css: 'landing.css'});
 });
 
 app.get('/score', (req, res) => {

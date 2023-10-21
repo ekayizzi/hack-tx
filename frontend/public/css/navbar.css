@@ -1,0 +1,59 @@
+.navbar {
+  width: 80px;
+  /* height: 100vh; */
+  display: flex;
+  align-self: stretch;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.navbar .icon-holder {
+  width: 24px; height: 24px;
+}
+
+.navbar .icon-holder.spacing-after {
+  padding-bottom: 48px;
+}
+
+.navbar .upper-icons,
+.navbar .lower-icons {
+  padding-top: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar .lower-icons {
+  padding-bottom: 32px;
+}
+
+.navbar i:hover {
+  color: #1B78C1
+}
+
+.navbar .pfp-holder {
+  width: 48px;
+  height: 48px;
+  border-radius: 9999px;
+  border-width: 1;
+  border-style: solid;
+  border-color: black;
+  overflow: hidden;
+}
+
+.navbar .pfp-holder:hover {
+  border-width: 2;
+  border-color: #1B78C1;
+}
+
+.navbar .pfp {
+  /* Make the image take up the full width and height of the div */
+  width: 100%;
+  height: 100%;
+
+  /* Center the image within the div and crop the excess */
+  object-fit: cover;
+  object-position: center;
+}
