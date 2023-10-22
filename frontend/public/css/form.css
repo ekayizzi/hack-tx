@@ -169,7 +169,8 @@
 
 .loading-body {
   padding-top: 16px;
-  display: none; /** invisible by default */
+  display: none;
+  /** invisible by default */
   justify-content: center;
 }
 
@@ -202,6 +203,7 @@
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -219,4 +221,25 @@
   align-items: flex-start;
   /* display: inline-flex; */
   display: none;
+}
+
+.submission-header {
+  display: flex;
+  justify-content: flex-start;
+  width: 200px;
+  height: 24px;
+  color: #475467;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.submission-value {
+  height: 24px;
+  justify-content: flex-start;
+  align-items: center;
+  display: inline-flex;
+  color: #23366F;
+  font-weight: 600;
+  line-height: 24px;
+  font-size: 16px;
 }

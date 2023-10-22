@@ -47,17 +47,19 @@ function setStageCompleted(index) {
 }
 
 $(document).ready(() => {
-  console.log('fodkoked')
-  $('.calculate-button').on('click', async function() {
-    $('.form-body').css('display', 'none');
-    $('.summary-body').css('display', 'none');
-    setStageCompleted(1);
-    $('.loading-body').css('display', 'flex');
-    const requestBody = getRequestBody();
-    const probability = await waitTime(1000);
-    $('.form-body').css('display', 'none');
-    $('.loading-body').css('display', 'none');
-    setStageCompleted(2);
-    $('.summary-body').css('display', 'flex');
-  });
+  // $('.calculate-button').on('click', async function() {
+  //   $('.form-body').css('display', 'none');
+  //   $('.summary-body').css('display', 'none');
+  //   setStageCompleted(1);
+  //   $('.loading-body').css('display', 'flex');
+  //   const requestBody = getRequestBody();
+  //   const probability = await waitTime(1000);
+  //   $('.form-body').css('display', 'none');
+  //   $('.loading-body').css('display', 'none');
+  //   setStageCompleted(2);
+  //   $('.summary-body').css('display', 'flex');
+  // });
+  $('.form-body').css('display', 'none');
+  $('.summary-body').css('display', 'flex');
+  $('.loading-body').css('display', 'none');
 });
