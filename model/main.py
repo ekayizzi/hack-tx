@@ -1,7 +1,6 @@
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
-from fastapi.middleware.cors import CORSMiddleware
 
 from typing import Union
 
@@ -23,13 +22,7 @@ class Input(BaseModel):
     loanAmount: float
 
 app = FastAPI()
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=['http://localhost:3000'],  # Adjust this to your needs
-    allow_credentials=True,
-    allow_methods=['*'],
-    allow_headers=['*'],
-)
+
 
 from sklearn.metrics import accuracy_score
 #%%
@@ -64,7 +57,7 @@ clf.fit(X_train, y_train)
 
 def predict_loan_qualification(age, MonthlyIncome, monthly_debt, lines_of_credit, num_open_loans, NumberOfTimes90DaysLate, NumberRealEstateLoansOrLines, total_credit_balance, credit_sum_limits, NumberOfDependents, loanAmount, model=clf):
 
-    if loanAmount > 50000:
+    if loanAmount >= 50000:
         LongTermLoan = True
     else:
         LongTermLoan = False
@@ -96,16 +89,16 @@ def predict_loan_qualification(age, MonthlyIncome, monthly_debt, lines_of_credit
     if LongTermLoan == False and LoanToIncome > 7.0:
         score = score*.9
 
-    if age < 25.0 and LoanToIncome > 6.0:
+    if age < 25.0:
          score = score*.9
     #
-    if RevolvingUtilizationOfUnsecuredLines > 0.8:  # Above 80% utilization
+    if RevolvingUtilizationOfUnsecuredLines >= 0.8:  # Above 80% utilization
          score = score*.9
     #
     if NumberOfTimes90DaysLate > 2.0:
-         score = score*.96
+         score = score*.9
     #
-    if NumberOfDependents > 3.0 and LoanToIncome > 7.0:
+    if NumberOfDependents > 3.0 and LoanToIncome > 5.0:
         score = score*.93
 
 
@@ -136,5 +129,4 @@ def predictScore(input: Input):
     return {"score": score}
 
 # print(predict_loan_qualification(24, 600, 500, 4, 4, 1, 6, 9000, 10000, 6, 60000))
-
 
