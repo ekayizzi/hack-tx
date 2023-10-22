@@ -118,6 +118,31 @@
   justify-content: center;
 }
 
+.form-body-column-container {
+  align-self: stretch;
+  justify-content: flex-start;
+  align-items: flex-start;
+  display: inline-flex
+}
+
+.form-body-column {
+  flex: 1 1 0;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 16px;
+  display: inline-flex
+}
+
+.form-body-entry {
+  align-self: stretch;
+  height: 42px;
+  justify-content: space-between;
+  gap: 32px;
+  display: inline-flex;
+  /* background-color: pink !important; */
+}
+
 .field-textbox:focus {
   outline: none;
 }
