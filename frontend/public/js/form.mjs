@@ -1,8 +1,11 @@
 function getRequestBody() {
   function getField(className) {
-    return $(`div.${className} input`).text();
+    return String($(`div.${className} input`).val());
   }
 
+  console.log($(`div.age`));
+  console.log($(`div.age input`));
+  console.log($(`div.age input`).val());
   const age = getField('age');
   const monthlyIncome = getField('monthy-income');
   const loanAmount = getField('loan-amount');
@@ -46,6 +49,18 @@ function setStageCompleted(index) {
   $(stages[index]).addClass('current');
 }
 
+function dollarFormat(num) {
+  const s = String(num);
+  let result = '';
+  let i  = s.length - 3;
+  for(; i >= 1; i -= 3) {
+    result = ',' + s.substring(i, i + 3) + result;
+  }
+  console.log(i);
+  result = s.substring(0, i + 3) + result;
+  return '$' + result;
+}
+
 $(document).ready(() => {
   $('.calculate-button').on('click', async function() {
     $('.form-body').css('display', 'none');
@@ -53,21 +68,29 @@ $(document).ready(() => {
     setStageCompleted(1);
     $('.loading-body').css('display', 'flex');
     const requestBody = getRequestBody();
+    console.log(requestBody);
+    const loanAmount = requestBody.loanAmount;
     // const probability = await waitTime(10000000);
     const apiResponse = 6.5;
     const probability = apiResponse * 10;
+    const probabilityString = `${(probability).toFixed(1)}%`;
     $('.form-body').css('display', 'none');
     $('.loading-body').css('display', 'none');
     setStageCompleted(2);
     $('.summary-body').css('display', 'flex');
-    $('.result-percentage').text(`${(probability).toFixed(1)}%`);
-    if(probability > 50 && probability < 75) {
-      $('.probability-comment-title').text('')
+    $('.result-percentage').text(probabilityString);
+    const loanAmountString = dollarFormat(loanAmount);
+    $('.result-loan-amount').text(loanAmountString);
+    if(probability > 40 && probability < 75) {
+      $('.probability-comment-title').text(`You may be able to get a loan.`);
     }
     else if(probability >= 75) {
-      $('.probability-comment-title').text('');
-      $('.probability-comment').text('');
+      $('.probability-comment-title').text(`That's a great score!`);
     }
+    else {
+      $('.probability-comment-title').text(`It will be difficult to get a loan.`);
+    }
+    $('.probability-comment').text(`There's a ${probabilityString} chance you will be able to get a ${loanAmountString} loan.`);
 
   });
   // $('.form-body').css('display', 'none');
