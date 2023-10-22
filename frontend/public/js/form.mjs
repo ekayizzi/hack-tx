@@ -82,7 +82,7 @@ $(document).ready(() => {
     $('.credit-card-balance').text(dollarFormat(requestBody.creditCardBalance));
     $('.credit-limits').text(dollarFormat(requestBody.sumOfCreditCardLimits));
     $('.dependents').text(requestBody.dependents);
-    // const probability = await waitTime(10000000);
+    await waitTime(3000);
     const apiResponse = await loanProbability(requestBody);
     console.log('apiResponse');
     console.log(apiResponse);
