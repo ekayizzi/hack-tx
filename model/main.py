@@ -65,7 +65,7 @@ clf.fit(X_train, y_train)
 
 def predict_loan_qualification(age, MonthlyIncome, monthly_debt, lines_of_credit, num_open_loans, NumberOfTimes90DaysLate, NumberRealEstateLoansOrLines, total_credit_balance, credit_sum_limits, NumberOfDependents, loanAmount, model=clf):
 
-    if loanAmount >= 50000:
+    if loanAmount >= 30000:
         LongTermLoan = True
     else:
         LongTermLoan = False
