@@ -19,3 +19,52 @@
   font-weight: 400;
   line-height: 20px;
 }
+
+.stage-bar {
+  display: flex;
+}
+
+.stage-bar .stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.stage-bar .circle-layer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-self: stretch;
+  align-items: center;
+}
+
+.stage-bar .circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 9999px;
+  background-color: #1A78C2;
+  height: 24px;
+  width: 24px;
+}
+
+.stage-bar .circle-inner {
+  background-color: white;
+  border-radius: 9999px;
+  height: 12px;
+  width: 12px;
+}
+
+.stage-bar .stage-connector {
+  height: 8px;
+  flex-grow: 1;
+}
+
+.stage.left .stage-connector:first-child {
+  background-color: red;
+}
+
+.stage.right .stage-connector:last-child {
+  background-color: red;
+}
