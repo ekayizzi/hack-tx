@@ -1,6 +1,7 @@
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
+from fastapi.middleware.cors import CORSMiddleware
 
 from typing import Union
 
@@ -22,7 +23,13 @@ class Input(BaseModel):
     loanAmount: float
 
 app = FastAPI()
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=['http://localhost:3000'],  # Adjust this to your needs
+    allow_credentials=True,
+    allow_methods=['*'],
+    allow_headers=['*'],
+)
 
 from sklearn.metrics import accuracy_score
 #%%
