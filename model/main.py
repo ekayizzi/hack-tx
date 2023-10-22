@@ -27,7 +27,7 @@ app = FastAPI()
 from sklearn.metrics import accuracy_score
 #%%
 # read in the file
-trainData = pd.read_csv('/Users/eddiekayizzi/PycharmProjects/CaptialOneProj/GiveMeSomeCredit/cs-training.csv')
+trainData = pd.read_csv(r'cs-training.csv')
 
 # Drop unneeded columns, drop NA data
 trainData = trainData.drop(columns=["Unnamed: 0", 'NumberOfTime30-59DaysPastDueNotWorse', 'NumberOfTime60-89DaysPastDueNotWorse']).dropna()
@@ -84,6 +84,8 @@ def predict_loan_qualification(age, MonthlyIncome, monthly_debt, lines_of_credit
     # Convert probability to loan qualification score
     score = (1 - prediction_proba) * 10
 
+
+
     if LongTermLoan == False and LoanToIncome > 7.0:
         score = score*.9
 
@@ -103,7 +105,9 @@ def predict_loan_qualification(age, MonthlyIncome, monthly_debt, lines_of_credit
     if score < 0:
         score = 0
 
-    return score  # Return the rounded score
+
+
+    return round(score[0], 1)  # Return the rounded score
 
 
 @app.post("/")
