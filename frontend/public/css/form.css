@@ -360,7 +360,7 @@
   border-radius: 50%;
   background:
     radial-gradient(closest-side, white 79%, transparent 80% 100%),
-    conic-gradient(#1A78C2 75%, #E1E1E1 0);
+    conic-gradient(#1A78C2 45%, #E1E1E1 0);
 }
 
 .loan-row {

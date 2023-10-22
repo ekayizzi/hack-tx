@@ -82,7 +82,8 @@ $(document).ready(() => {
     $('.credit-card-balance').text(dollarFormat(requestBody.creditCardBalance));
     $('.credit-limits').text(dollarFormat(requestBody.sumOfCreditCardLimits));
     $('.dependents').text(requestBody.dependents);
-    await waitTime(3000);
+    // await waitTime(4200);
+    await waitTime(0);
     const apiResponse = await loanProbability(requestBody);
     console.log('apiResponse');
     console.log(apiResponse);
@@ -95,6 +96,8 @@ $(document).ready(() => {
     $('.result-percentage').text(probabilityString);
     const loanAmountString = dollarFormat(loanAmount);
     $('.result-loan-amount').text(loanAmountString);
+    console.log(`probability: ${probability}`);
+    $('.progress-bar').css('background', 'radial-gradient(closest-side, white 79%, transparent 80% 100%), conic-gradient(#1A78C2 ' + probability + '%, #E1E1E1 0)');
     if(probability > 40 && probability < 75) {
       $('.probability-comment-title').text(`You may be able to get a loan.`);
     }
@@ -107,6 +110,8 @@ $(document).ready(() => {
     $('.probability-comment').text(`There's a ${probabilityString} chance you will be able to get a ${loanAmountString} loan.`);
 
   });
+
+
   // $('.form-body').css('display', 'none');
   // $('.summary-body').css('display', 'flex');
   // $('.loading-body').css('display', 'none');
