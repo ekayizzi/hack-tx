@@ -167,6 +167,46 @@
   background-color: #1A78C2;
 }
 
+.loading-body {
+  padding-top: 16px;
+  display: none; /** invisible by default */
+  justify-content: center;
+}
+
+.spinner-container {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+.spinner-background,
+.spinner-foreground {
+  border-radius: 50%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 8px solid transparent;
+}
+
+.spinner-background {
+  border-color: #E1E1E1;
+}
+
+.spinner-foreground {
+  border-top-color: #1A78C2;
+  animation: spin 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+}
+
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .summary-body {
   width: 1360px;
   height: 1251px;
