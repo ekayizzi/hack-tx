@@ -47,24 +47,33 @@ function setStageCompleted(index) {
 }
 
 $(document).ready(() => {
-  // $('.calculate-button').on('click', async function() {
-  //   $('.form-body').css('display', 'none');
-  //   $('.summary-body').css('display', 'none');
-  //   setStageCompleted(1);
-  //   $('.loading-body').css('display', 'flex');
-  //   const requestBody = getRequestBody();
-  //   const probability = await waitTime(1000);
-  //   $('.form-body').css('display', 'none');
-  //   $('.loading-body').css('display', 'none');
-  //   setStageCompleted(2);
-  //   $('.summary-body').css('display', 'flex');
-  // });
-  $('.form-body').css('display', 'none');
-  $('.summary-body').css('display', 'flex');
-  $('.loading-body').css('display', 'none');
-});
+  $('.calculate-button').on('click', async function() {
+    $('.form-body').css('display', 'none');
+    $('.summary-body').css('display', 'none');
+    setStageCompleted(1);
+    $('.loading-body').css('display', 'flex');
+    const requestBody = getRequestBody();
+    // const probability = await waitTime(10000000);
+    const apiResponse = 6.5;
+    const probability = apiResponse * 10;
+    $('.form-body').css('display', 'none');
+    $('.loading-body').css('display', 'none');
+    setStageCompleted(2);
+    $('.summary-body').css('display', 'flex');
+    $('.result-percentage').text(`${(probability).toFixed(1)}%`);
+    if(probability > 50 && probability < 75) {
+      $('.probability-comment-title').text('')
+    }
+    else if(probability >= 75) {
+      $('.probability-comment-title').text('');
+      $('.probability-comment').text('');
+    }
 
-$(document).ready(function() {
+  });
+  // $('.form-body').css('display', 'none');
+  // $('.summary-body').css('display', 'flex');
+  // $('.loading-body').css('display', 'none');
+
   $('.home-button').click(function() {
     window.location.href = '/..';
   });
