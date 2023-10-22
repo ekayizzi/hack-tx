@@ -1,3 +1,5 @@
+import { loanProbability } from './requests.mjs';
+
 function getRequestBody() {
   function getField(className) {
     return String($(`div.${className} input`).val());
@@ -71,7 +73,7 @@ $(document).ready(() => {
     console.log(requestBody);
     const loanAmount = requestBody.loanAmount;
     // const probability = await waitTime(10000000);
-    const apiResponse = 6.5;
+    const apiResponse = loanProbability(requestBody);
     const probability = apiResponse * 10;
     const probabilityString = `${(probability).toFixed(1)}%`;
     $('.form-body').css('display', 'none');
