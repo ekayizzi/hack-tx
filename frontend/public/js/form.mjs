@@ -63,3 +63,9 @@ $(document).ready(() => {
   $('.summary-body').css('display', 'flex');
   $('.loading-body').css('display', 'none');
 });
+
+$(document).ready(function() {
+  $('.home-button').click(function() {
+    window.location.href = '/..';
+  });
+});
