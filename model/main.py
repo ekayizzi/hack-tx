@@ -98,7 +98,7 @@ def predict_loan_qualification(age, MonthlyIncome, monthly_debt, lines_of_credit
         score = score*.9
 
     if age < 25.0:
-         score = score*.9
+         score = score*.95
     #
     if RevolvingUtilizationOfUnsecuredLines >= 0.8:  # Above 80% utilization
          score = score*.9
