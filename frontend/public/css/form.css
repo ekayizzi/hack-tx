@@ -94,3 +94,7 @@
 .stage.right .stage-connector:last-child {
   background-color: #E1E1E1;
 }
+
+.field-textbox:focus {
+  outline: none;
+}
