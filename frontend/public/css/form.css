@@ -67,12 +67,13 @@
   width: 24px;
 }
 
-.stage.filled .circle {
-  background-color: #1A78C2;
+.stage .circle {
+  background-color: #E1E1E1;
 }
 
-.stage:not(.filled) .circle {
-  background-color: #E1E1E1;
+.stage.completed .circle,
+.stage.current .circle {
+  background-color: #1A78C2;
 }
 
 .stage-bar .circle-inner {
@@ -97,4 +98,10 @@
 
 .field-textbox:focus {
   outline: none;
+}
+
+.stage.current.left .stage-connector:first-child,
+.stage.completed.right .stage-connector:last-child,
+.stage.completed.left .stage-connector:first-child {
+  background-color: #1A78C2;
 }
