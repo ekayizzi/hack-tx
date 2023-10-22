@@ -72,6 +72,17 @@ $(document).ready(() => {
     const requestBody = getRequestBody();
     console.log(requestBody);
     const loanAmount = requestBody.loanAmount;
+    $('.age').text(requestBody.age);
+    $('.monthly-income').text(dollarFormat(requestBody.monthlyIncome));
+    $('.loan-amount').text(dollarFormat(requestBody.loanAmount));
+    $('.monthly-debt').text(dollarFormat(requestBody.monthlyDebt));
+    $('.credit-lines').text(requestBody.linesOfCredit);
+    $('.open-loans').text(requestBody.openLoans);
+    $('.past-due').text(requestBody.timesPastDue);
+    $('.real-estate-loans').text(requestBody.realEstateLoans);
+    $('.credit-card-balance').text(dollarFormat(requestBody.creditCardBalance));
+    $('.credit-limits').text(dollarFormat(requestBody.sumOfCreditCardLimits));
+    $('.dependents').text(requestBody.dependents);
     // const probability = await waitTime(10000000);
     const apiResponse = loanProbability(requestBody);
     const probability = apiResponse * 10;
