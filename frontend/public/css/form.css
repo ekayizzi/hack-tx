@@ -186,6 +186,15 @@
   white-space: nowrap
 }
 
+.field-question-mark {
+  display: flex;
+  width: 16px;
+  height: 16px;
+  padding: 1.33px;
+  align-items: center;
+  cursor: pointer;
+}
+
 .field-title {
   display: flex;
   padding-right: 20px;
