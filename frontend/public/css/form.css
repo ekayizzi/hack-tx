@@ -118,11 +118,17 @@
   justify-content: center;
 }
 
+.form-body-content {
+  border-radius: 16px;
+  box-shadow: 0px 4px 12px 4px rgba(0, 0, 0, 0.086);
+}
+
 .form-body-column-container {
   align-self: stretch;
   justify-content: flex-start;
   align-items: flex-start;
-  display: inline-flex
+  display: inline-flex;
+  gap: 16px;
 }
 
 .form-body-column {
