@@ -77,4 +77,8 @@ $(document).ready(() => {
   $('.home-button').click(function() {
     window.location.href = '/..';
   });
+
+  $('.cancel-button').click(function() {
+    window.location.href = '/..';
+  });
 });
