@@ -1,4 +1,8 @@
-# HackTX Competitin
+# HackTX Competition
+
+
+### 
+Many individuals find the world of loans daunting. The criteria banks and financial institutions consider when granting loans remain opaque to many. We saw an opportunity to demystify this process, empowering individuals with the knowledge to make informed decisions about their financial futures.
 
 
 
