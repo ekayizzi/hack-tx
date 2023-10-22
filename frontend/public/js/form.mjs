@@ -58,7 +58,6 @@ function dollarFormat(num) {
   for(; i >= 1; i -= 3) {
     result = ',' + s.substring(i, i + 3) + result;
   }
-  console.log(i);
   result = s.substring(0, i + 3) + result;
   return '$' + result;
 }
@@ -84,7 +83,9 @@ $(document).ready(() => {
     $('.credit-limits').text(dollarFormat(requestBody.sumOfCreditCardLimits));
     $('.dependents').text(requestBody.dependents);
     // const probability = await waitTime(10000000);
-    const apiResponse = loanProbability(requestBody);
+    const apiResponse = await loanProbability(requestBody);
+    console.log('apiResponse');
+    console.log(apiResponse);
     const probability = apiResponse * 10;
     const probabilityString = `${(probability).toFixed(1)}%`;
     $('.form-body').css('display', 'none');
