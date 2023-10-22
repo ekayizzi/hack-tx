@@ -32,6 +32,10 @@
   padding-bottom: 32px;
 }
 
+.navbar i {
+  cursor: pointer;
+}
+
 .navbar i:hover {
   color: #1B78C1
 }
