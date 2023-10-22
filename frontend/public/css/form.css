@@ -166,3 +166,17 @@
   color: white;
   background-color: #1A78C2;
 }
+
+.summary-body {
+  width: 1360px;
+  height: 1251px;
+  padding-bottom: 48px;
+  background: white;
+  border-top-left-radius: 40px;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  /* display: inline-flex; */
+  display: none;
+}

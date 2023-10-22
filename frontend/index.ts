@@ -14,11 +14,11 @@ app.engine(
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-  res.render("landing", { layout: "formLayout", css: "landing.css" });
+  res.render("landing", { layout: "formLayout", css: "landing.css", js: "landing.mjs" });
 });
 
 app.get("/form", (req, res) => {
-  res.render("form", { layout: "formLayout", css: "form.css" });
+  res.render("form", { layout: "formLayout", css: "form.css", js: "form.mjs" });
 });
 
 app.get("/score", (req, res) => {
