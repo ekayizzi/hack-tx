@@ -2,7 +2,6 @@
 @import url("./navbar.css");
 
 .form-header {
-  background-color: lime;
   padding: 16px;
   display: flex;
   justify-content: space-between;
@@ -64,9 +63,16 @@
   justify-content: center;
   align-items: center;
   border-radius: 9999px;
-  background-color: #1A78C2;
   height: 24px;
   width: 24px;
+}
+
+.stage.filled .circle {
+  background-color: #1A78C2;
+}
+
+.stage:not(.filled) .circle {
+  background-color: #E1E1E1;
 }
 
 .stage-bar .circle-inner {
@@ -77,14 +83,14 @@
 }
 
 .stage-bar .stage-connector {
-  height: 8px;
+  height: 2px;
   flex-grow: 1;
 }
 
 .stage.left .stage-connector:first-child {
-  background-color: red;
+  background-color: #E1E1E1;
 }
 
 .stage.right .stage-connector:last-child {
-  background-color: red;
+  background-color: #E1E1E1;
 }

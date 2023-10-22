@@ -1,16 +1,4 @@
-{{#if right}}
-  {{#if left}}
-    <div class="stage left right">
-  {{else}}
-    <div class="stage right">
-  {{/if}}
-{{else}}
-  {{#if left}}
-    <div class="stage left">
-  {{else}}
-    <div class="stage">
-  {{/if}}
-{{/if}}
+<div class="stage {{{classes}}}">
   <div class="circle-layer">
     <div class="stage-connector"></div>
     <div class="circle">
