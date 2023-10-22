@@ -84,20 +84,24 @@ def predict_loan_qualification(age, MonthlyIncome, monthly_debt, lines_of_credit
     # Convert probability to loan qualification score
     score = (1 - prediction_proba) * 10
 
-    # if NumberRealEstateLoansOrLines > 3:
-    #     score = score - 1.5
+    if LongTermLoan == False and LoanToIncome > 7.0:
+        score = score*.9
+
+    if age < 25.0 and LoanToIncome > 6.0:
+         score = score*.9
     #
-    # if age < 25 and LoanToIncome > 6:
-    #     score = score - 2
+    if RevolvingUtilizationOfUnsecuredLines > 0.8:  # Above 80% utilization
+         score = score*.9
     #
-    # if RevolvingUtilizationOfUnsecuredLines > 0.8:
-    #     score = score - 2.5
+    if NumberOfTimes90DaysLate > 2.0:
+         score = score*.96
     #
-    # if NumberOfTimes90DaysLate > 2:
-    #     score = score - 2
-    #
-    # if NumberOfDependents > 3 and LoanToIncome > 7:
-    #     score = score - 1.5
+    if NumberOfDependents > 3.0 and LoanToIncome > 7.0:
+        score = score*.93
+
+
+    if score < 0:
+        score = 0
 
     return score  # Return the rounded score
 
