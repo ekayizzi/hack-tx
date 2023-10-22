@@ -20,6 +20,10 @@
   line-height: 20px;
 }
 
+.page-content {
+  width: 100vw;
+}
+
 .stage-bar {
   display: flex;
 }
@@ -29,6 +33,22 @@
   flex-direction: column;
   align-items: center;
   flex-grow: 1;
+}
+
+.stage-text-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.stage-bar .stage-title {
+  font-size: 16pt;
+}
+
+.stage-bar .stage-subtitle {
+  font-size: 12pt;
 }
 
 .stage-bar .circle-layer {
